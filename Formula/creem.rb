@@ -8,7 +8,7 @@ class Creem < Formula
   sha256 "ef1ac4e0b71cc2fea07b066d10c0d539b3c980c40f45fb687c113086f9f08b3b"
   license "MIT"
 
-  depends_on "node@18"
+  depends_on "node@22"
 
   def install
     system "npm", "install", *std_npm_args
