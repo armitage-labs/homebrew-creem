@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 class Creem < Formula
-  desc "CLI for Creem - the Stripe alternative for SaaS"
+  desc "Command-line interface for Creem"
   homepage "https://creem.io"
-  url "https://registry.npmjs.org/creem-cli/-/creem-cli-0.1.0.tgz"
-  sha256 "PLACEHOLDER_UPDATE_AFTER_NPM_PUBLISH"
+  url "https://github.com/armitage-labs/creem-cli/releases/download/v0.1.0/creem-cli-0.1.0.tgz"
+  sha256 "ef1ac4e0b71cc2fea07b066d10c0d539b3c980c40f45fb687c113086f9f08b3b"
   license "MIT"
 
   depends_on "node@18"
