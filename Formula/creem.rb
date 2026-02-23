@@ -4,8 +4,8 @@
 class Creem < Formula
   desc "Command-line interface for Creem"
   homepage "https://creem.io"
-  url "https://github.com/armitage-labs/creem-cli/releases/download/v0.1.2/creem-cli-0.1.2.tgz"
-  sha256 "4d7662a6311ab5b7fb0c23d9ed2ccfd71569c328505270fb5a80d6fe2da90c85"
+  url "https://github.com/armitage-labs/creem-cli/releases/download/v0.1.3/creem-cli-0.1.3.tgz"
+  sha256 "2f1e73b16e7df4df9ada6655935f752f0ff8648b6507a6ce9f61caef284e5bb9"
   license "MIT"
 
   depends_on "node@22"
