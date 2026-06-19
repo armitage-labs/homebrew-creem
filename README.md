@@ -1,6 +1,6 @@
 # Homebrew Tap for CREEM CLI
 
-Official Homebrew tap for [CREEM CLI](https://github.com/armitage-labs/pugpay-monorepo/tree/main/packages/creem-cli).
+Official Homebrew tap for [CREEM CLI](https://github.com/armitage-labs/creem/tree/main/packages/cli).
 
 ## Installation
 
@@ -45,12 +45,12 @@ brew untap armitage-labs/creem
 
 ### npm (Global)
 ```bash
-npm install -g creem-cli
+npm install -g @creem_io/cli
 ```
 
 ### npx (No Install)
 ```bash
-npx creem-cli <command>
+npx @creem_io/cli <command>
 ```
 
 ## Links
