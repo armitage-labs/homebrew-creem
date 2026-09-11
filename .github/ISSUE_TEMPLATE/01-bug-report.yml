@@ -1,0 +1,56 @@
+name: Bug report
+description: Report a reproducible Homebrew installation or packaging problem
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Creem.
+
+        - Report CLI behavior unrelated to Homebrew in the [monorepo](https://github.com/armitage-labs/creem/issues/new/choose).
+        - Request new capabilities in [Featurebase](https://creem.featurebase.app/).
+        - Do not include secrets or security vulnerabilities here; use [private vulnerability reporting](https://github.com/armitage-labs/creem/security/advisories/new) instead.
+  - type: input
+    id: version
+    attributes:
+      label: CLI and formula version
+      description: Include the output of creem --version and brew info armitage-labs/creem/creem.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the smallest ordered steps that reproduce the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include operating system, CPU architecture, and Homebrew version. Review output for private paths before sharing.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or additional context
+      description: Remove API keys, personal data, and other sensitive values before pasting output.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: This report does not disclose a security vulnerability or secret.
+          required: true
