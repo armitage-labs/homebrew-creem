@@ -62,7 +62,8 @@ npx @creem_io/cli <command>
 
 ## Release automation
 
-The monorepo's release workflow opens a PR here after publishing `@creem_io/cli`.
+The monorepo's release workflow opens a PR here after publishing a stable
+`@creem_io/cli` version (`X.Y.Z`). Prereleases are not supported by this tap.
 It verifies the exact npm tarball's integrity and updates the formula URL and
 SHA-256. Branches use `automation/creem-X.Y.Z`; retries reuse the version's PR.
 See the [monorepo setup and recovery guide](https://github.com/armitage-labs/creem/blob/main/docs/homebrew-releases.md).
