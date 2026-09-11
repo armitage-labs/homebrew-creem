@@ -1,0 +1,38 @@
+name: Merge CLI releases
+
+on:
+  workflow_run:
+    workflows: [Homebrew CI]
+    types: [completed]
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: homebrew-auto-merge
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: >-
+      github.repository == 'armitage-labs/homebrew-creem' &&
+      contains(fromJSON('["pull_request", "workflow_dispatch"]'), github.event.workflow_run.event) &&
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # workflow_run is privileged: execute only the default branch's script,
+      # never a PR checkout or a downloaded build artifact.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.workflow_sha }}
+          persist-credentials: false
+
+      - uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        env:
+          RELEASE_BOT: ${{ vars.HOMEBREW_RELEASE_BOT_LOGIN }}
+        with:
+          script: |
+            await require('./scripts/auto-merge.cjs')({ github, context, core, bot: process.env.RELEASE_BOT });

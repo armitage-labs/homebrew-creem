@@ -1,0 +1,51 @@
+name: Homebrew CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  automation:
+    name: Automation tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node --test scripts/auto-merge.test.cjs
+
+  homebrew:
+    name: Homebrew (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-14, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: Homebrew/actions/setup-homebrew@49d03f1bf5d455a413dfbdf99e6718054a4cd975
+
+      - name: Tap the checked-out formula
+        run: brew tap --custom-remote armitage-labs/creem "$GITHUB_WORKSPACE"
+
+      - name: Install published CLI
+        run: brew install --build-from-source armitage-labs/creem/creem
+
+      - name: Audit formula
+        run: brew audit --strict --online armitage-labs/creem/creem
+
+      - name: Test installed CLI
+        run: brew test armitage-labs/creem/creem
