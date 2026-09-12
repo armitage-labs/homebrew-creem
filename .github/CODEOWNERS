@@ -1,3 +1,0 @@
-# Keep release automation changes behind maintainer review.
-/.github/ @sudoFerraz
-/scripts/ @sudoFerraz
