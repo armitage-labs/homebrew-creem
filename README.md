@@ -29,7 +29,7 @@ brew untap armitage-labs/creem
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for formula checks and maintainer setup.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for formula checks and release recovery.
 Report bugs and documentation issues in the
 [Creem monorepo](https://github.com/armitage-labs/creem/issues/new/choose);
 report vulnerabilities privately through its

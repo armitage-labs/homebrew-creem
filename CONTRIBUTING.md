@@ -27,26 +27,13 @@ brew test armitage-labs/creem/creem
 CI runs these checks on macOS and Linux without real Creem credentials.
 Include validation results in PRs; this tap does not use Changesets.
 
-## Maintainer setup
+## Automated releases
 
-1. Merge the initial implementation manually; enable Actions and squash merging.
-2. Protect `main`: require `Automation tests`, `Homebrew (macos-14)`, and
-   `Homebrew (ubuntu-24.04)`, with up-to-date branches. Block direct/force pushes
-   and grant neither the release App nor Actions a bypass.
-3. Require code-owner review for workflows/scripts using an authorized maintainer
-   or team. Formula-only releases must not require human approval if they are
-   to merge unattended.
-4. Configure the App credentials in
-   [the monorepo](https://github.com/armitage-labs/creem/blob/main/CONTRIBUTING.md#homebrew-cli-releases),
-   then set this repo's `HOMEBREW_RELEASE_BOT_LOGIN` to its exact login,
-   including `[bot]`. No App private key belongs in the tap.
-
-The custom merge job accepts only that bot's same-repository, non-draft PRs
+The merge job accepts only the release bot's same-repository, non-draft PRs
 changing the npm URL/checksum to a newer stable version. It requires successful
 CI on the current head and retests after refreshing a stale branch. It uses
 `GITHUB_TOKEN` with Contents/Pull requests write for merging and Actions write
-for CI dispatch; GitHub's separate "Allow auto-merge" setting is not used.
-Branch protection remains mandatory; the script does not replace it.
+for CI dispatch. GitHub's separate "Allow auto-merge" setting is not used.
 
 ## Recovery
 
