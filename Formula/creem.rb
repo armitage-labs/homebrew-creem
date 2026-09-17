@@ -4,8 +4,8 @@
 class Creem < Formula
   desc "Command-line interface for Creem"
   homepage "https://creem.io"
-  url "https://registry.npmjs.org/@creem_io/cli/-/cli-0.6.0.tgz"
-  sha256 "5e83b7bb34109e271bbd412bb878e70b82edb75f38ffb7e21735ef06fd7575e0"
+  url "https://registry.npmjs.org/@creem_io/cli/-/cli-0.6.1.tgz"
+  sha256 "a587be750b8cd652f34f16d84b734287973dbd8324c00ffacc14cdde3f267a78"
   license "MIT"
 
   depends_on "node@22"
