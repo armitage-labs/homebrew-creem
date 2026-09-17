@@ -35,7 +35,7 @@ function fixture() {
     pr,
     jobs: [
       "Automation tests",
-      "Homebrew (macos-14)",
+      "Homebrew (macos-15)",
       "Homebrew (ubuntu-24.04)",
     ].map((name) => ({ name, conclusion: "success" })),
     files: [{ filename: "Formula/creem.rb", status: "modified" }],

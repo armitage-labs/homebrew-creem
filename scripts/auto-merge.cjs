@@ -1,6 +1,6 @@
 const requiredJobs = [
   "Automation tests",
-  "Homebrew (macos-14)",
+  "Homebrew (macos-15)",
   "Homebrew (ubuntu-24.04)",
 ];
 const versionPattern = "(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)";
